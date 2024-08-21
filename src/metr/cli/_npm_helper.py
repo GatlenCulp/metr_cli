@@ -3,9 +3,12 @@ import os
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.absolute()
-WORKBENCH_DIR = PROJECT_ROOT / "src" / "metr" / "task-standard" / "workbench"
+WORKBENCH_DIR = PROJECT_ROOT / "src" / "task-standard" / "workbench"
 
 def run_npm_command(command: str, cwd: Path):
+    # Check WORKBENCH_DIR exists
+    if not WORKBENCH_DIR.exists():
+        raise FileNotFoundError(f"Workbench directory not found: {WORKBENCH_DIR}")
     npm_command = ["npm", "--prefix", str(WORKBENCH_DIR), "run"]
     npm_command.extend(command.split())  # Split the command into separate arguments
     
@@ -30,6 +33,9 @@ def run_npm_command(command: str, cwd: Path):
         print(f"STDERR:\n{result.stderr}")
     except subprocess.CalledProcessError as e:
         print(f"Error executing npm command: {e}")
+        # If docker is not running, print special message
+        if "docker" in e.stderr.lower():
+            print("Docker is not running. Please start Docker and try again.")
         print(f"STDOUT:\n{e.stdout}")
         print(f"STDERR:\n{e.stderr}")
         raise

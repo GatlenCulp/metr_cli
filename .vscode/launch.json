@@ -10,6 +10,19 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: METR CLI",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/metr/metr_cli.py",
+            "args": [
+                "run",
+                "${workspaceFolder}/examples/my_task/",
+                "addition"
+            ]
+            ],
+            "console": "integratedTerminal"
         }
     ]
 }

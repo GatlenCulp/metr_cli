@@ -4,9 +4,9 @@
         {
             "label": "Build and Install metr",
             "type": "shell",
-            "command": "${command:python.interpreterPath}",
+            "command": "poetry",
             "args": [
-                "-m", "pip", "install", "--upgrade", "build",
+                "build",
                 "&&",
                 "${command:python.interpreterPath}", "-m", "build", "--wheel", "--sdist",
                 "&&",

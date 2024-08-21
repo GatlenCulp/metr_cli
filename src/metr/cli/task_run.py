@@ -1,5 +1,5 @@
 import click
-from metr.cli._npm_helper import run_npm_command, PROJECT_ROOT
+from ._npm_helper import run_npm_command, PROJECT_ROOT
 from pathlib import Path
 
 @click.command()
