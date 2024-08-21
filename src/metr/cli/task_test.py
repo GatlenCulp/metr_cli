@@ -1,6 +1,6 @@
 import click
 from pathlib import Path
-from src.cli._npm_helper import run_npm_command, PROJECT_ROOT
+from metr.cli._npm_helper import run_npm_command, PROJECT_ROOT
 
 @click.command()
 @click.argument('task_family_directory', type=click.Path(exists=True, file_okay=False, resolve_path=True))

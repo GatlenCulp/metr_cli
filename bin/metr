@@ -2,6 +2,7 @@
 
 # Get the directory of this script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROJECT_ROOT="$(dirname "$DIR")"
 
 # Run the CLI script with python3.10
-python3.10 "$DIR/src/metr_cli.py" "$@"
+python3.10 "$PROJECT_ROOT/src/metr/metr_cli.py" "$@"

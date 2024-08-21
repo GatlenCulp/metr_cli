@@ -1,44 +1,41 @@
 [tool.poetry]
-
 name = "metr-cli"
-version = "0.0"
+version = "0.0.1"
 description = "A CLI interface for the METR task standard"
-
-packages = [{ include = "metr_cli" }]
-
-license = "MIT"
 authors = ["Gatlen Culp <GatlenCulp@gmail.com>"]
-
+license = "MIT"
 readme = "README.md"
 homepage = "https://pypi.org/project/metr-cli"
 documentation = "https://metr-cli.readthedocs.io"
 repository = "https://github.com/GatlenCulp/metr_cli"
+packages = [{ include = "metr", from = "src" }]
 
 keywords = [
+    # Add relevant keywords here
 ]
+
 classifiers = [
-    # TODO: update this list to match your application: https://pypi.org/pypi?%3Aaction=list_classifiers
     "Development Status :: 1 - Planning",
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
 ]
 
 [tool.poetry.dependencies]
-
-python = "^3.11"
-
-# TODO: Remove these and add your library's requirements
+python = "^3.10"
 click = "*"
 minilog = "*"
+rich = "*"
+cookiecutter = "*"
+pydantic = "*"
 
-[tool.poetry.dev-dependencies]
-
+[tool.poetry.group.dev.dependencies]
 # Formatters
 black = "^22.1"
-tomli = "*" # missing 'black' dependency
+tomli = "*"
 isort = "^5.10"
 
 # Linters
@@ -46,7 +43,7 @@ mypy = "^1.0"
 pydocstyle = "^6.1"
 pylint = "~2.15"
 pylint-pytest = "*"
-wrapt = "*" # missing 'pylint' dependency
+wrapt = "*"
 
 # Testing
 pytest = "^8.1"
@@ -71,43 +68,32 @@ pync = { version = "*", platform = "darwin" }
 ipython = "^7.12.0"
 
 [tool.poetry.scripts]
-
-metr-cli = "metr_cli.cli:main"
+metr = "metr.metr_cli:cli"
 
 [tool.black]
-
 quiet = true
 
 [tool.isort]
-
 profile = "black"
 
 [tool.mypy]
-
 ignore_missing_imports = true
 no_implicit_optional = true
 check_untyped_defs = true
-
 cache_dir = ".cache/mypy/"
 
 [tool.pytest.ini_options]
-
 addopts = """
 --strict-markers
-
 -r sxX
 --show-capture=log
-
 --cov-report=html
 --cov-report=term-missing:skip-covered
 --no-cov-on-fail
 """
-
 cache_dir = ".cache/pytest/"
-
 markers = []
 
 [build-system]
-
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

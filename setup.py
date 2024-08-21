@@ -13,7 +13,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'metr=metr.metr_cli:main',
+            'metr=metr.metr_cli:cli',
         ],
     },
 )

@@ -1,6 +1,6 @@
 import click
 from pathlib import Path
-from src.cli._npm_helper import run_npm_command, PROJECT_ROOT
+from metr.cli._npm_helper import run_npm_command, PROJECT_ROOT
 
 @click.command()
 @click.argument('container_name', type=str)

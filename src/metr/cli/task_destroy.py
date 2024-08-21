@@ -1,6 +1,6 @@
 import click
 from pathlib import Path
-from src.cli._npm_helper import run_npm_command
+from metr.cli._npm_helper import run_npm_command
 
 @click.command()
 @click.argument('task_environment_identifier', type=str)

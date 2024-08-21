@@ -4,11 +4,11 @@ import pathlib
 from rich.traceback import install
 install()
 
-PROJECT_ROOT = pathlib.Path(__file__).parent.parent
-WORKBENCH_DIR = PROJECT_ROOT / "src" / "workbench"
+PROJECT_ROOT = pathlib.Path(__file__).parent.parent.parent
+WORKBENCH_DIR = PROJECT_ROOT / "src" / "metr" / "workbench"
 sys.path.append(str(PROJECT_ROOT))
 
-from src.cli import task_create, task_run, task_agent, task_score, task_export, task_test, task_destroy
+from metr.cli import task_create, task_run, task_agent, task_score, task_export, task_test, task_destroy
 
 
 @click.group()

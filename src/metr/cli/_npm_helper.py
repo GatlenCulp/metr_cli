@@ -2,8 +2,8 @@ import subprocess
 import os
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent.absolute()
-WORKBENCH_DIR = PROJECT_ROOT / "src" / "task-standard" / "workbench"
+PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.absolute()
+WORKBENCH_DIR = PROJECT_ROOT / "src" / "metr" / "task-standard" / "workbench"
 
 def run_npm_command(command: str, cwd: Path):
     npm_command = ["npm", "--prefix", str(WORKBENCH_DIR), "run"]
