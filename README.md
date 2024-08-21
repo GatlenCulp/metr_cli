@@ -42,3 +42,35 @@ Everything is under the `metr` command
 - Will run various tests to confirm that the project is ready for publishing
   - Tests if QA is set up well
   - Tests if
+
+# Mapping of npm functions to CLI functions
+
+1. Create a task environment
+   - npm: `npm run task -- "taskFamilyDirectory" "taskName"`
+   - CLI: `metr task run <task_family_directory> <task_name>`
+
+2. Run an agent inside a task environment
+   - npm: `npm run agent -- "[docker container name]" "path/to/agent[:path/in/VM]" "command to start agent"`
+   - CLI: `metr task agent <container_name> <agent_path> <start_command>`
+
+3. Score a task environment
+   - npm: `npm run score -- [docker container name]`
+   - CLI: `metr task score <container_name>`
+
+4. Export files from a task environment
+   - npm: `npm run export -- [docker container name] [file1] [file2] ...`
+   - CLI: `metr task export <container_name> <file1> <file2> ...`
+
+5. Run tests in a task environment
+   - npm: 
+     - All tests: `npm run test -- "taskFamilyDirectory" "taskName" "testFileName"`
+     - Single test: `npm run test -- "taskFamilyDirectory" "taskName" "testFileName::testName"`
+   - CLI: 
+     - All tests: `metr task test <task_family_directory> <task_name> <test_file>`
+     - Single test: `metr task test <task_family_directory> <task_name> <test_file> --test-name <test_name>`
+
+6. Destroy a task environment
+   - npm: `npm run destroy -- "taskEnvironmentIdentifier"`
+   - CLI: `metr task destroy <task_environment_identifier>`
+
+Note: The `metr task create` command doesn't directly map to an npm function. It's a custom command for creating new task definitions in your project structure.
