@@ -1,6 +1,6 @@
 import click
 from pathlib import Path
-from ._npm_helper import run_npm_command, PROJECT_ROOT
+from ._npm_helper import run_npm_command, SRC_DIR
 
 @click.command()
 @click.argument('container_name', type=str)
@@ -9,7 +9,7 @@ from ._npm_helper import run_npm_command, PROJECT_ROOT
 def export(container_name: str, source_path: str, destination_path: Path) -> None:
     """Copy files from a task environment to your computer."""
     abs_destination_path = Path(destination_path).resolve()
-    rel_destination_path = abs_destination_path.relative_to(PROJECT_ROOT)
+    rel_destination_path = abs_destination_path.relative_to(SRC_DIR)
     cmd = f"export -- {container_name} {source_path} {rel_destination_path}"
     cwd = Path.cwd()
     run_npm_command(cmd, cwd)

@@ -1,5 +1,5 @@
 import click
-from ._npm_helper import run_npm_command, PROJECT_ROOT
+from ._npm_helper import run_npm_command
 from pathlib import Path
 
 @click.command()

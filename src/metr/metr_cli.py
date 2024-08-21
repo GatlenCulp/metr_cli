@@ -1,16 +1,37 @@
 import click
-import sys
 import pathlib
+import sys
+import importlib
 from rich.traceback import install
+
 install()
 
 CURRENT_DIR = pathlib.Path(__file__).parent
-PROJECT_ROOT = CURRENT_DIR.parent.parent
-WORKBENCH_DIR = PROJECT_ROOT / "src" / "metr" / "workbench"
-sys.path.append(str(PROJECT_ROOT))
+SRC_DIR = CURRENT_DIR.parent
+WORKBENCH_DIR = SRC_DIR / "task-standard" / "workbench"
 
-from src.metr.cli import task_create, task_run, task_agent, task_score, task_export, task_test, task_destroy
+def import_cli_modules():
+    if __name__ == '__main__':
+        # When run as script, add parent directory to sys.path
+        sys.path.insert(0, str(SRC_DIR))
+        module_name = "metr.cli"
+    else:
+        # When imported as a module
+        module_name = ".cli"
+    
+    cli_module = importlib.import_module(module_name, package="metr")
+    
+    return (
+        cli_module.task_create,
+        cli_module.task_run,
+        cli_module.task_agent,
+        cli_module.task_score,
+        cli_module.task_export,
+        cli_module.task_test,
+        cli_module.task_destroy
+    )
 
+task_create, task_run, task_agent, task_score, task_export, task_test, task_destroy = import_cli_modules()
 
 @click.group()
 def cli():
@@ -41,5 +62,4 @@ task_group.add_command(task_destroy, name="destroy")
 cli.add_command(task_group)
 
 if __name__ == '__main__':
-    # print(pathlib.Path.cwd())
     cli()

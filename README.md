@@ -1,5 +1,11 @@
 # Overview
 
+poetry build
+pip install ./dist/metr_cli-0.0.1-py3-none-any.whl --force-reinstall
+metr
+metr task run ./examples/my_task/my_task.py addition
+python3.10 ./src/metr/metr_cli.py run ./examples/my_task/ addition
+
 A CLI interface for the METR task standard. The METR task standard is a way
 
 This project was generated with [cookiecutter](https://github.com/audreyr/cookiecutter)

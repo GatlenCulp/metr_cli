@@ -1,6 +1,6 @@
 import click
 from pathlib import Path
-from ._npm_helper import run_npm_command, PROJECT_ROOT
+from ._npm_helper import run_npm_command, SRC_DIR
 
 @click.command()
 @click.argument('container_name', type=str)
@@ -9,7 +9,7 @@ from ._npm_helper import run_npm_command, PROJECT_ROOT
 def agent(container_name: str, agent_path: Path, start_command: str) -> None:
     """Run an agent inside a task environment."""
     abs_agent_path = Path(agent_path).resolve()
-    rel_agent_path = abs_agent_path.relative_to(PROJECT_ROOT)
+    rel_agent_path = abs_agent_path.relative_to(SRC_DIR)
     cmd = f"agent -- {container_name} {rel_agent_path} \"{start_command}\""
     cwd = Path.cwd()
     run_npm_command(cmd, cwd)
