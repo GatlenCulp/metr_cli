@@ -1,16 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get the directory of this script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-# echo "Script directory: $DIR"
-# echo "Python version:"
-# python3.10 --version
-# echo "Contents of src directory:"
-# ls -l "$DIR/src"
-# echo "Contents of src/task_cli directory:"
-# ls -l "$DIR/src/task_cli"
-# echo "Running CLI script..."
 
 # Run the CLI script with python3.10
 python3.10 "$DIR/src/cli.py" "$@"
