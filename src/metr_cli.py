@@ -1,6 +1,8 @@
 import click
 import sys
 import pathlib
+from rich.traceback import install
+install()
 
 PROJECT_ROOT = pathlib.Path(__file__).parent.parent
 WORKBENCH_DIR = PROJECT_ROOT / "src" / "workbench"
