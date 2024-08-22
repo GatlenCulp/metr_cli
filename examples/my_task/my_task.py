@@ -1,7 +1,8 @@
 # This file contains the main code for your task.
 # You can delete these comments, and any empty optional methods, before submitting.
 
-from metr_task_standard.types import VMSpec
+from metr.core.types import VMSpec
+# from metr_task_standard.types import VMSpec
 from typing import TypedDict
 
 # If you try to import third-party libraries here, the task will crash because `install` hasn't run yet.
