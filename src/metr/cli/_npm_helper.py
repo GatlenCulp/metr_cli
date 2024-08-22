@@ -2,8 +2,8 @@ import subprocess
 import os
 from pathlib import Path
 
-SRC_DIR = Path(__file__).parent.parent.parent.absolute() # cli > metr > src
-WORKBENCH_DIR = SRC_DIR / "task-standard" / "workbench"
+METR_DIR = Path(__file__).parent.parent.absolute() # cli > metr
+WORKBENCH_DIR = METR_DIR / "task-standard" / "workbench"
 
 def run_npm_command(command: str, cwd: Path):
     # Check WORKBENCH_DIR exists

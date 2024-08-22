@@ -3,7 +3,7 @@ import fs from 'fs'
 import { mkdtemp, rm, writeFile } from 'fs/promises'
 import os from 'os'
 import path from 'path'
-import { AuxVmDetails, Env } from '../../../drivers/Driver'
+import { AuxVmDetails, Env } from 'task-standard-drivers/Driver'
 
 export function header(text: string) {
   const green = '\x1b[32m'

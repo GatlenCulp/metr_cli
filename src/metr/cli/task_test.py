@@ -1,6 +1,6 @@
 import click
 from pathlib import Path
-from ._npm_helper import run_npm_command, SRC_DIR
+from ._npm_helper import run_npm_command, METR_DIR
 
 @click.command()
 @click.argument('task_family_directory', type=click.Path(exists=True, file_okay=False, resolve_path=True))
@@ -9,7 +9,7 @@ from ._npm_helper import run_npm_command, SRC_DIR
 def test(task_family_directory: Path, task_name: str, test_file_name: str) -> None:
     """Run tests for a task."""
     abs_task_family_dir = Path(task_family_directory).resolve()
-    rel_task_family_dir = abs_task_family_dir.relative_to(SRC_DIR)
+    rel_task_family_dir = abs_task_family_dir.relative_to(METR_DIR)
     cmd = f"test -- {rel_task_family_dir} {task_name} {test_file_name}"
     cwd = Path.cwd()
     run_npm_command(cmd, cwd)

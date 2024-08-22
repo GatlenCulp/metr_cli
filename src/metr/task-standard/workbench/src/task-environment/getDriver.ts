@@ -1,5 +1,5 @@
 import { execFileSync } from 'child_process'
-import { DriverImpl } from '../../../drivers/DriverImpl'
+import { DriverImpl } from 'task-standard-drivers/DriverImpl'
 
 export function getDriver(taskFamilyName: string, taskName: string, containerName: string) {
   return new DriverImpl(taskFamilyName, taskName, async ({ pythonCode, args, user, workdir, env }) => {

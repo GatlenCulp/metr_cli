@@ -1,4 +1,4 @@
-import { AuxVmDetails, Driver, Env, ScoringResult, TaskSetupData } from '../../../drivers/Driver'
+import { AuxVmDetails, Driver, Env, ScoringResult, TaskSetupData } from 'task-standard-drivers/Driver'
 import { addAuxVmDetailsToEnv } from './env'
 
 export async function scoreTaskEnvironment(

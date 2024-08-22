@@ -1,7 +1,7 @@
 import { execSync } from 'child_process'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { destroyAuxVm } from '../../drivers/src/aws'
+import { destroyAuxVm } from 'task-standard-drivers/src/aws'
 
 async function main() {
   const argv = await yargs(hideBin(process.argv))

@@ -8,7 +8,6 @@ install()
 
 CURRENT_DIR = pathlib.Path(__file__).parent
 SRC_DIR = CURRENT_DIR.parent
-WORKBENCH_DIR = SRC_DIR / "task-standard" / "workbench"
 
 def import_cli_modules():
     if __name__ == '__main__':

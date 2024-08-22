@@ -1,4 +1,4 @@
-import { DriverImpl } from '../../../drivers/DriverImpl'
+import { DriverImpl } from 'task-standard-drivers/DriverImpl'
 
 export async function getTaskSetupData(driver: DriverImpl, taskFamilyName: string, taskName: string) {
   const getTaskSetupDataResult = await driver.getTaskSetupData()
